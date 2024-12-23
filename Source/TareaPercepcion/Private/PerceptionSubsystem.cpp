@@ -15,7 +15,7 @@ void UPerceptionSubsystem::RegisterDetectedActor(AActor* InActor)
 void UPerceptionSubsystem::RegisterActorWithPerception(AActor* InActor)
 {
 	if(IsPerceptionActive(InActor))AllActorsWithPerception.AddUnique(InActor);
-	else RemoveDetectedActor(InActor);
+	else RemoveActorWithPerception(InActor);
 }
 
 void UPerceptionSubsystem::SetPerceptionToAll(const bool& InState)
