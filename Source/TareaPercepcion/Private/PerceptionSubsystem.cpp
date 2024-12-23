@@ -22,7 +22,7 @@ void UPerceptionSubsystem::SetPerceptionToAll(const bool& InState)
 {
 	for (const auto& Actor : AllActorsWithPerception)
 	{
-		Actor->FindComponentByClass<UPerceptionComponent>()->PerceptionInfo.IsPerceptionActive=InState;
+		Actor->FindComponentByClass<UPerceptionComponent>()->SetPerception(InState);
 	}
 }
 
@@ -46,7 +46,7 @@ void UPerceptionSubsystem::SetPerception(const int& InIndex, const bool& InState
 	if(!AllActorsWithPerception.Num())return;
 	if (InIndex==-1) SetPerceptionToAll(InState);
 	if(InIndex<0) return;
-	AllActorsWithPerception[InIndex]->FindComponentByClass<UPerceptionComponent>()->PerceptionInfo.IsPerceptionActive=InState;
+	AllActorsWithPerception[InIndex]->FindComponentByClass<UPerceptionComponent>()->SetPerception(InState);
 	
 }
 

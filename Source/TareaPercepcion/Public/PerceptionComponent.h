@@ -67,6 +67,7 @@ public:
 	UFUNCTION()
 	void PerformAction();
 	void TimerStartWithInterval(const float InTimerInterval);
+	void SetPerception(const bool& InState);
 	virtual void EndPlay(const EEndPlayReason::Type EndPlayReason) override;
 };
 

@@ -48,6 +48,11 @@ void UPerceptionComponent::TimerStartWithInterval(const float InTimerInterval)
 	
 }
 
+void UPerceptionComponent::SetPerception(const bool& InState)
+{
+	PerceptionInfo.IsPerceptionActive=InState;
+}
+
 
 void UPerceptionComponent::EndPlay(const EEndPlayReason::Type EndPlayReason)
 {
