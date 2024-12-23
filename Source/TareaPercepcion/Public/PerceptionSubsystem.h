@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "PerceptionComponent.h"
 #include "Subsystems/WorldSubsystem.h"
 #include "PerceptionSubsystem.generated.h"
 DECLARE_DELEGATE_OneParam(FOnActorDetected,AActor*);
@@ -27,6 +28,7 @@ class TAREAPERCEPCION_API UPerceptionSubsystem : public UWorldSubsystem
 	void SetPerceptionToAll(const bool& InState);
 	bool HasPerception(const AActor* InActor);
 	void RegisterAllActorsWithPerception(TArray<AActor*> OutActors);
+	void InitPerceptionInfo(const FPerceptionInfo& InPerceptionInfo,AActor* InActor) const;
 	
 public:
 	FOnActorDetected OnActorDetected;

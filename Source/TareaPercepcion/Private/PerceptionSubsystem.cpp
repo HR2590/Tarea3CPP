@@ -41,6 +41,13 @@ for(TObjectIterator<AActor> It; It; ++It)
 }
 }
 
+void UPerceptionSubsystem::InitPerceptionInfo(const FPerceptionInfo& InPerceptionInfo, AActor* InActor) const
+{
+	if(!InActor)return;
+	if(AllActorsWithPerception.Find(InActor))
+		InActor->FindComponentByClass<UPerceptionComponent>()->PerceptionInfo=InPerceptionInfo;
+}
+
 void UPerceptionSubsystem::SetPerception(const int& InIndex, const bool& InState)
 {
 	if(!AllActorsWithPerception.Num())return;
