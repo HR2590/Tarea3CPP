@@ -14,15 +14,22 @@ class TAREAPERCEPCION_API UPerceptionSubsystem : public UWorldSubsystem
 {
 	GENERATED_BODY()
 
-	void RegisterNewActor(AActor* InActor);
+	void RegisterDetectedActor(AActor* InActor);
 	virtual void Initialize(FSubsystemCollectionBase& Collection) override;
 	virtual void Deinitialize() override;
 	virtual bool ShouldCreateSubsystem(UObject* Outer) const override;
 	UPROPERTY() TArray<AActor*> AllDetectedActors;
-	void RemoveActor(AActor* InActor);
+	UPROPERTY() TArray<AActor*> AllActorsWithPerception;
+	void RemoveDetectedActor(AActor* InActor);
+	void RemoveActorWithPerception(AActor* InActor);
 	static bool IsPerceptionActive(const AActor* InActor);
+	void RegisterActorWithPerception(AActor* InActor);
+	void SetPerceptionToAll(const bool& InState);
+	bool HasPerception(const AActor* InActor);
+	void RegisterAllActorsWithPerception(TArray<AActor*> OutActors);
 	
 public:
 	FOnActorDetected OnActorDetected;
+	void SetPerception(const int& InIndex,const bool& InState);
 
 };
